@@ -24,19 +24,7 @@ const SCREEN_DESCRIPTIONS = {
   8: 'Screen 8 — Edge case warning',
 };
 
-/* ========== HELPER: Previous conversation for Screen 1 ========== */
-function PrevConversation() {
-  return (
-    <>
-      <div className="msg-user prev-msg">
-        Can you help me think through a business problem?
-      </div>
-      <div className="msg-claude prev-msg">
-        Of course! I'd be happy to help you think through a business problem. What's on your mind? Feel free to share as much context as you'd like.
-      </div>
-    </>
-  );
-}
+
 
 /* ========== SCREEN 1: Chat ========== */
 function ScreenChat({ query, onAdvance }) {
@@ -89,8 +77,6 @@ function ScreenDetecting({ query, onAdvance }) {
 function ScreenAssumptions({ query, onConfirm, onEdit }) {
   return (
     <>
-
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="assumption-card">
         <div className="assumption-card__header">
@@ -134,8 +120,6 @@ function ScreenEditing({ query, onSave }) {
 
   return (
     <>
-
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="assumption-card">
         <div className="assumption-card__header">
@@ -222,8 +206,6 @@ function ScreenAnswer({ query, onAllLoaded }) {
 
   return (
     <>
-
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="answer-container">
         <div className="tl-badge">✦ TrustLoop — context confirmed · 5/5 assumptions reviewed</div>
@@ -266,8 +248,6 @@ function ScreenDA({ query, onExplore }) {
 
   return (
     <>
-
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
 
       {/* Truncated answer */}
@@ -325,8 +305,6 @@ function ScreenExpanded({ query, onDismiss }) {
 
   return (
     <>
-
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
 
       {/* Truncated answer */}
@@ -412,8 +390,6 @@ function ScreenEdgeCase({ query, onRefine, onStartFresh }) {
 
   return (
     <>
-
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="edge-card">
         <div className="edge-card__header">⊗ TrustLoop — significant limitations found</div>
