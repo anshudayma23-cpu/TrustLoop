@@ -371,7 +371,7 @@ body {
   border-radius: 16px 16px 16px 4px;
   padding: 10px 14px;
   font-size: 13px;
-  max-width: 90%;
+  max-width: 75%;
   line-height: 1.5;
   border: 1px solid var(--border-primary);
   animation: fadeSlideUp 0.28s ease-out;

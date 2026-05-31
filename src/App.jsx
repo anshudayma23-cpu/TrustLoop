@@ -13,6 +13,17 @@ const SCREEN_LABELS = [
   '8. Edge Case',
 ];
 
+const SCREEN_DESCRIPTIONS = {
+  1: 'Screen 1 — Chat interface',
+  2: 'Screen 2 — TrustLoop detecting',
+  3: 'Screen 3 — Assumption Contract',
+  4: 'Screen 4 — Editing assumption',
+  5: "Screen 5 — Claude's answer",
+  6: "Screen 6 — Devil's Advocate",
+  7: 'Screen 7 — Expanded reasoning',
+  8: 'Screen 8 — Edge case warning',
+};
+
 /* ========== HELPER: Previous conversation for Screen 1 ========== */
 function PrevConversation() {
   return (
@@ -31,10 +42,8 @@ function PrevConversation() {
 function ScreenChat({ query, onAdvance }) {
   return (
     <>
-      <div className="screen-label">Screen 1 — Chat interface</div>
-      <PrevConversation />
       <div className="msg-claude">
-        I'm ready to help with your next question. TrustLoop is active — I'll surface my assumptions before answering so you can verify my reasoning.
+        Hi! I'm Claude. How can I help you today?
       </div>
       <div style={{ alignSelf: 'flex-start', marginTop: '8px' }}>
         <button className="btn btn--primary" onClick={onAdvance}>
@@ -62,7 +71,6 @@ function ScreenDetecting({ query, onAdvance }) {
 
   return (
     <>
-      <div className="screen-label">Screen 2 — TrustLoop detecting</div>
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="detecting-pill">
@@ -82,7 +90,7 @@ function ScreenDetecting({ query, onAdvance }) {
 function ScreenAssumptions({ query, onConfirm, onEdit }) {
   return (
     <>
-      <div className="screen-label">Screen 3 — Assumption Contract</div>
+
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="assumption-card">
@@ -127,7 +135,7 @@ function ScreenEditing({ query, onSave }) {
 
   return (
     <>
-      <div className="screen-label">Screen 4 — Editing assumption</div>
+
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="assumption-card">
@@ -215,7 +223,7 @@ function ScreenAnswer({ query, onAllLoaded }) {
 
   return (
     <>
-      <div className="screen-label">Screen 5 — Claude's answer</div>
+
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="answer-container">
@@ -259,7 +267,7 @@ function ScreenDA({ query, onExplore }) {
 
   return (
     <>
-      <div className="screen-label">Screen 6 — Devil's Advocate</div>
+
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
 
@@ -318,7 +326,7 @@ function ScreenExpanded({ query, onDismiss }) {
 
   return (
     <>
-      <div className="screen-label">Screen 7 — Expanded reasoning</div>
+
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
 
@@ -405,7 +413,7 @@ function ScreenEdgeCase({ query, onRefine, onStartFresh }) {
 
   return (
     <>
-      <div className="screen-label">Screen 8 — Edge case warning</div>
+
       <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="edge-card">
@@ -557,6 +565,9 @@ export default function App() {
             </button>
           ))}
         </div>
+
+        {/* Screen Label */}
+        <div className="screen-label">{SCREEN_DESCRIPTIONS[screen]}</div>
 
         {/* Chat Window */}
         <div className="chat-window">
