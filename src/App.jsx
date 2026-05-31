@@ -71,7 +71,6 @@ function ScreenDetecting({ query, onAdvance }) {
 
   return (
     <>
-      <PrevConversation />
       <div className="msg-user">{query.queryText}</div>
       <div className="detecting-pill">
         <span className="detecting-pill__dot" />
